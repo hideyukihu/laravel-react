@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +26,8 @@ Route::get('/hoge', function (Request $request) {
             'hoge' => 'Hello from Laravel'
         ]
     );
+});
+
+Route::group(['prefix' => 'V1'], function() {
+    Route::apiResource('posts', PostController::class);
 });
