@@ -28,6 +28,6 @@ Route::get('/hoge', function (Request $request) {
     );
 });
 
-Route::group(['prefix' => 'V1'], function() {
+Route::group(['prefix' => 'v1'], function() {
     Route::apiResource('posts', PostController::class);
 });
