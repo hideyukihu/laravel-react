@@ -6,12 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePostRequest;
 use App\Models\Post;
 use App\Http\Resources\v1\PostResource;
+use Inertia\Inertia;
 
 class PostController extends Controller
 {
     public function index()
     {
-        return PostResource::collection(Post::all());
+        $postall = PostResource::collection(Post::all());
+        return Inertia::render('Posts/PostComponent',['posts' => $postall]);
     }
 
     public function show(Post $post) {
