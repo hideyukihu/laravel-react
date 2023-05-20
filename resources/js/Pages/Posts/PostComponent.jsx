@@ -13,7 +13,7 @@ export default function PostComponent(props) {
     return (
         <>
             <PostIndex props={props} />
-            <div>ポストコンポーネント</div>
+            <div className=''>ポストコンポーネント</div>
 
             <Link href="/api/v1/posts/1">一覧</Link>
         </>
