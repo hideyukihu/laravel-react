@@ -46,3 +46,8 @@ Route::get('/color', function() {
     return Inertia::render('ColorComponent');
 });
 
+Route::get('/posts/create', function () {
+    return Inertia::render('Posts/PostCreate');
+});
+
+

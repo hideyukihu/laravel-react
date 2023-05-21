@@ -12,29 +12,35 @@ class PostController extends Controller
 {
     public function index()
     {
-        $postall = PostResource::collection(Post::all());
-        return Inertia::render('Posts/PostComponent',['posts' => $postall]);
+        $posts = PostResource::collection(Post::all());
+        return Inertia::render('Posts/PostComponent', ['posts' => $posts]);
     }
 
-    public function show(Post $post) {
-        return new PostResource($post);
+    public function show(Post $post)
+    {
+        $postResource = new PostResource($post);
+
+        return Inertia::render('Posts/PostCreate', [
+            'post' => $postResource,
+        ]);
     }
 
     public function store(StorePostRequest $request)
     {
         Post::create($request->validated());
-        return response()->json("Post Index");
+        response()->json("Post Index");
+        return to_route('posts.index');
     }
 
-    public function update(StorePostRequest $request, Post $post) {
+    public function update(StorePostRequest $request, Post $post)
+    {
         $post->update($request->validated());
         return response()->json("Post Updated");
     }
 
-    public function destroy(Post $post) {
+    public function destroy(Post $post)
+    {
         $post->delete();
         return response()->json("Post Deleted");
     }
-
-
 }

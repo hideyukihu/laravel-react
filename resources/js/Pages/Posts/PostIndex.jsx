@@ -1,11 +1,14 @@
 import { useEffect, forwardRef } from 'react';
-import { Link, Routes, Route } from 'react-router-dom';
-import { usePage } from '@inertiajs/inertia-react';
+import { Routes, Route } from 'react-router-dom';
+import { usePage, InertiaLink } from '@inertiajs/inertia-react';
 import { Home } from '../../Components/Home';
+import { Link } from '@inertiajs/react';
 
 export default function PostIndex(props) {
 
     console.log(props);
+
+
     return (
         <>
 
@@ -48,8 +51,9 @@ export default function PostIndex(props) {
                     </tbody>
                 </table>
             </div>
-
-
+            <div class="flex flex-col items-center justify-center my-3">
+                <Link href="/posts/create" method="get" as="button" type="button" class="mx-auto text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">登録</Link>
+            </div>
         </>
     );
 }
