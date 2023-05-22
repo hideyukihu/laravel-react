@@ -41,16 +41,18 @@ export default function PostIndex(props) {
                                 <td class="px-6 py-4">
                                     {item.body}
                                 </td>
-                                <td>編集</td>
+                                <td>
+                                    <Link href={`/posts/${item.id}/edit`} method="post" as="button" type="button" class="mx-auto text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">編集</Link>
+                                </td>
                                 <td>削除</td>
                             </tr>
                         ))}
 
 
 
-                    </tbody>
-                </table>
-            </div>
+                </tbody>
+            </table>
+        </div >
             <div class="flex flex-col items-center justify-center my-3">
                 <Link href="/posts/create" method="get" as="button" type="button" class="mx-auto text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">登録</Link>
             </div>
